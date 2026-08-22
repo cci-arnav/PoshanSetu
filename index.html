@@ -24,6 +24,7 @@
         --ink: #1c2430;
         --line: rgba(62, 142, 79, 0.16);
         --shadow: 0 20px 50px rgba(62, 142, 79, 0.12);
+        --space-section: 80px;
       }
       * {
         box-sizing: border-box;
@@ -74,16 +75,17 @@
         display: flex;
         align-items: center;
         gap: 10px;
+        margin-bottom: 5px;
       }
-      .eyebrow::before {
+      /* .eyebrow::before {
         content: "";
         width: 26px;
         height: 2px;
         background: var(--gold);
         display: inline-block;
-      }
+      } */
       section {
-        padding: 90px 0;
+        padding: var(--space-section) 0;
       }
       @media (max-width: 720px) {
         section {
@@ -150,6 +152,14 @@
       .navlinks a:hover {
         color: var(--green);
       }
+      .navlinks .btn-green {
+        font-size: 0.88rem;
+        color: var(--white);
+      }
+      .navlinks a.btn-green:hover {
+        background: var(--green-deep);
+        color: var(--white);
+      }
       .navlinks a.active {
         color: var(--green-deep);
       }
@@ -161,6 +171,15 @@
         bottom: -8px;
         height: 2px;
         background: var(--gold);
+      }
+      .navlinks a:focus-visible,
+      .btn:focus-visible,
+      .navtoggle:focus-visible,
+      summary:focus-visible,
+      .reg-card:focus-visible,
+      .back-link:focus-visible {
+        outline: 3px solid var(--gold-light);
+        outline-offset: 4px;
       }
       .btn {
         display: inline-flex;
@@ -179,6 +198,7 @@
       }
       .btn:hover {
         transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(62, 142, 79, 0.28);
       }
       .btn-green {
         background: var(--green);
@@ -195,6 +215,7 @@
       }
       .btn-gold:hover {
         background: #d16f1f;
+        box-shadow: 0 10px 24px rgba(232, 129, 46, 0.28);
       }
       .btn-outline {
         background: transparent;
@@ -203,6 +224,7 @@
       }
       .btn-outline:hover {
         background: var(--green-light);
+        transition: all 0.18s;
       }
       .navtoggle {
         display: none;
@@ -245,12 +267,10 @@
 
       /* ---------- HERO (light green + white) ---------- */
       .hero {
-        background: linear-gradient(
-          180deg,
-          var(--green-light) 0%,
-          var(--white) 100%
-        );
-        padding: 70px 0 90px;
+        background:
+          radial-gradient(circle at 84% 22%, rgba(62, 142, 79, 0.14), transparent 28%),
+          linear-gradient(180deg, var(--green-light) 0%, var(--white) 100%);
+        padding: 70px 0 64px;
         position: relative;
         overflow: hidden;
       }
@@ -263,7 +283,7 @@
       .hero-grid {
         display: grid;
         grid-template-columns: 1.1fr 0.9fr;
-        gap: 56px;
+        gap: 64px;
         align-items: center;
       }
       @media (max-width: 900px) {
@@ -296,7 +316,162 @@
         border: 1px solid var(--line);
         border-radius: 18px;
         box-shadow: var(--shadow);
-        padding: 34px;
+        padding: 22px;
+        min-height: 390px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+        background: #fffdf8;
+      }
+      .hero-badge {
+        position: absolute;
+        left: 34px;
+        bottom: 34px;
+        z-index: 1;
+        padding: 9px 13px;
+        border-radius: 8px;
+        background: rgba(255, 253, 248, 0.96);
+        color: var(--green-deep);
+        box-shadow: 0 8px 18px rgba(28, 36, 48, 0.14);
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        line-height: 1.2;
+        text-transform: uppercase;
+      }
+      .hero-badge-heart {
+        color: var(--gold);
+      }
+      .hero-image {
+        width: 100%;
+        height: 340px;
+        border-radius: 12px;
+        object-fit: cover;
+        object-position: center;
+      }
+      .hero-scene {
+        width: 100%;
+        min-height: 340px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        background: linear-gradient(145deg, #f7dcae 0%, #f8f0d9 48%, #dcefd8 100%);
+      }
+      .hero-scene::before {
+        content: "";
+        position: absolute;
+        width: 220px;
+        height: 220px;
+        right: -45px;
+        top: -55px;
+        border-radius: 50%;
+        background: rgba(232, 129, 46, 0.22);
+      }
+      .scene-sun {
+        position: absolute;
+        width: 78px;
+        height: 78px;
+        right: 54px;
+        top: 42px;
+        border-radius: 50%;
+        background: var(--gold);
+        box-shadow: 0 0 0 12px rgba(232, 129, 46, 0.14);
+      }
+      .scene-hill {
+        position: absolute;
+        width: 120%;
+        height: 150px;
+        left: -10%;
+        bottom: 74px;
+        border-radius: 50% 50% 0 0;
+        background: #9fca91;
+      }
+      .scene-school {
+        position: absolute;
+        left: 14%;
+        bottom: 74px;
+        width: 58%;
+        height: 132px;
+        background: #fffaf0;
+        border: 5px solid var(--green-deep);
+        border-bottom-width: 10px;
+        box-shadow: 10px 10px 0 rgba(37, 102, 51, 0.12);
+      }
+      .scene-school::before {
+        content: "";
+        position: absolute;
+        left: 22%;
+        top: -55px;
+        width: 0;
+        height: 0;
+        border-left: 92px solid transparent;
+        border-right: 92px solid transparent;
+        border-bottom: 56px solid var(--green-deep);
+      }
+      .scene-window {
+        position: absolute;
+        width: 28px;
+        height: 35px;
+        top: 38px;
+        background: #a8d8db;
+        border: 4px solid var(--green-deep);
+      }
+      .scene-window.one { left: 16%; }
+      .scene-window.two { right: 16%; }
+      .scene-door {
+        position: absolute;
+        width: 32px;
+        height: 62px;
+        left: calc(50% - 16px);
+        bottom: 0;
+        background: var(--gold);
+        border: 4px solid var(--green-deep);
+        border-bottom: 0;
+      }
+      .scene-table {
+        position: absolute;
+        right: 9%;
+        bottom: 62px;
+        width: 34%;
+        height: 17px;
+        border-radius: 50%;
+        background: var(--gold);
+        border: 4px solid var(--green-deep);
+      }
+      .scene-table::after {
+        content: "";
+        position: absolute;
+        left: 22%;
+        top: 12px;
+        width: 8px;
+        height: 48px;
+        background: var(--green-deep);
+        box-shadow: 55px 0 var(--green-deep);
+      }
+      .scene-bowl {
+        position: absolute;
+        right: 22%;
+        bottom: 84px;
+        width: 38px;
+        height: 20px;
+        border-radius: 0 0 24px 24px;
+        background: #e98145;
+        border: 3px solid var(--green-deep);
+      }
+      .scene-label {
+        position: absolute;
+        left: 20px;
+        bottom: 18px;
+        padding: 8px 12px;
+        border-radius: 6px;
+        background: var(--white);
+        color: var(--green-deep);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
       .hero-stats {
         display: grid;
@@ -310,11 +485,19 @@
         border: 1px solid var(--line);
         border-radius: 12px;
         padding: 18px 10px;
+        min-height: 92px;
+        transition: transform 0.18s, box-shadow 0.18s;
+      }
+      .hero-stats div:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 22px rgba(62, 142, 79, 0.1);
       }
       .hero-stats strong {
         display: block;
         font-family: "Fraunces", serif;
-        font-size: 1.6rem;
+        font-size: 1.85rem;
+        line-height: 1;
+        margin-bottom: 8px;
         color: var(--green-deep);
       }
       .hero-stats span {
@@ -335,6 +518,122 @@
         color: #48584a;
         max-width: 640px;
         margin: 14px 0 40px;
+      }
+      .challenge-layout {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 56px;
+        align-items: center;
+      }
+      .challenge-copy h2 {
+        max-width: 620px;
+      }
+      .challenge-copy p {
+        color: #4b5a4d;
+        margin-top: 16px;
+      }
+      .challenge-cards .card:hover {
+        border-left: 4px solid var(--gold);
+        background: #fffdf8;
+        transition: all 0.18s;
+      }
+      .process-section {
+        background: var(--green-pale);
+      }
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+        margin-top: 38px;
+      }
+      .process-step {
+        position: relative;
+        padding: 24px 20px;
+        border-top: 3px solid var(--green);
+        background: var(--white);
+        box-shadow: 0 10px 24px rgba(62, 142, 79, 0.07);
+      }
+      .process-step:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        width: 18px;
+        height: 1px;
+        right: -18px;
+        top: -3px;
+        background: var(--gold);
+      }
+      .process-number {
+        color: var(--gold);
+        font-family: "Fraunces", serif;
+        font-size: 1.8rem;
+        line-height: 1;
+      }
+      .process-step h3 {
+        margin: 14px 0 8px;
+        font-size: 1.05rem;
+      }
+      .process-step p {
+        color: #4b5a4d;
+        font-size: 0.9rem;
+      }
+      .category-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 16px;
+        margin-top: 36px;
+      }
+      .category-card {
+        padding: 22px 18px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--white);
+        box-shadow: 0 8px 20px rgba(62, 142, 79, 0.05);
+        transition: transform 0.18s, box-shadow 0.18s;
+      }
+      .category-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow);
+      }
+      .category-icon {
+        display: flex;
+        width: 38px;
+        height: 38px;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 14px;
+        border-radius: 50%;
+        background: var(--green-light);
+        color: var(--green-deep);
+        font-size: 1.15rem;
+      }
+      .category-card h3 {
+        font-size: 1rem;
+        margin-bottom: 7px;
+      }
+      .category-card p {
+        color: #4b5a4d;
+        font-size: 0.84rem;
+        line-height: 1.5;
+      }
+      .final-cta {
+        background: var(--green-deep);
+        color: var(--white);
+        text-align: center;
+      }
+      .final-cta h2 {
+        color: var(--white);
+        font-size: 2rem;
+      }
+      .final-cta p {
+        margin: 10px auto 24px;
+        color: rgba(255, 255, 255, 0.78);
+      }
+      .final-cta .btn-outline {
+        border-color: rgba(255, 255, 255, 0.7);
+        color: var(--white);
+      }
+      .final-cta .btn-outline:hover {
+        background: rgba(255, 255, 255, 0.12);
       }
       .grid-3 {
         display: grid;
@@ -620,6 +919,14 @@
         gap: 50px;
         align-items: start;
       }
+      .challenge-cards {
+        display: grid;
+        gap: 16px;
+        align-content: center;
+      }
+      .contact-grid > .form-wrap {
+        height: 100%;
+      }
       @media (max-width: 860px) {
         .contact-grid {
           grid-template-columns: 1fr;
@@ -699,6 +1006,63 @@
         text-align: center;
         color: rgba(255, 255, 255, 0.55);
       }
+      @media (max-width: 600px) {
+        .form-wrap {
+          padding: 28px 20px;
+        }
+        .hero-art {
+          min-height: 330px;
+        }
+        .hero-badge {
+          left: 28px;
+          bottom: 28px;
+          font-size: 0.6rem;
+        }
+        .hero-scene {
+          min-height: 280px;
+        }
+        .hero-image {
+          height: 280px;
+        }
+        .scene-school {
+          bottom: 62px;
+          transform: scale(0.82);
+          transform-origin: bottom left;
+        }
+        .scene-hill {
+          bottom: 62px;
+        }
+        .scene-table {
+          bottom: 50px;
+        }
+        .scene-bowl {
+          bottom: 72px;
+        }
+      }
+      @media (max-width: 900px) {
+        .challenge-layout {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        .process-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .process-step:not(:last-child)::after {
+          display: none;
+        }
+        .category-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      @media (max-width: 600px) {
+        .process-grid,
+        .category-grid {
+          grid-template-columns: 1fr;
+        }
+        .final-cta .hero-actions {
+          justify-content: center;
+        }
+      }
     </style>
   </head>
   <body>
@@ -741,7 +1105,6 @@
         <div class="container">
           <div
             class="hero-grid"
-            style="grid-template-columns: 1fr; max-width: 720px"
           >
             <div>
               <p class="eyebrow">Bridging Nutrition &amp; Learning</p>
@@ -750,7 +1113,7 @@
               </h1>
               <p class="lead">
                 PoshanSetu connects schools, cloud kitchens, self-help groups,
-                NGOs and local entrepreneurs on one trusted platform — making
+                NGOs and local entrepreneurs on one trusted platform  making
                 school meal programs safer, more transparent, and easier to run.
               </p>
               <div class="hero-actions">
@@ -763,30 +1126,35 @@
                 <div><strong>100%</strong><span>Verified Onboarding</span></div>
               </div>
             </div>
+            <div class="hero-art">
+              <img
+                class="hero-image"
+                src="assets/poshansetu-hero.png"
+                alt="Children sharing a nutritious meal with a community meal provider"
+              />
+              <span class="hero-badge"><span class="hero-badge-heart">&hearts;</span> Safe Meals, Shared Future</span>
+            </div>
           </div>
         </div>
       </section>
 
       <section class="about" id="about">
         <div class="container">
-          <div
-            class="grid-3"
-            style="grid-template-columns: 1.3fr 1fr; gap: 50px"
-          >
-            <div>
+          <div class="challenge-layout">
+            <div class="challenge-copy">
               <p class="eyebrow">The Challenge</p>
               <h2 style="font-size: 1.7rem">
                 A nutritious meal is often a child's first reason to come to
                 school — education is the reason they stay.
               </h2>
-              <p style="color: #4b5a4d; margin-top: 16px">
+              <p>
                 Yet millions of children face a fractured nutrition ecosystem
                 where systemic gaps undermine both health and learning outcomes:
                 uneven food quality, food safety concerns, poor transparency,
                 weak local supplier networks, and limited coordination between
                 programmes.
               </p>
-              <p style="color: #4b5a4d; margin-top: 14px">
+              <p style="margin-top: 14px">
                 India already has the building blocks to fix this — mid-day meal
                 infrastructure, a growing cloud-kitchen ecosystem, FSSAI's food
                 safety framework, and grassroots community organisations. What's
@@ -794,7 +1162,7 @@
                 PoshanSetu builds.
               </p>
             </div>
-            <div style="display: grid; gap: 18px">
+            <div class="challenge-cards">
               <div class="card">
                 <h3 style="font-size: 1rem">Quality &amp; Safety Gaps</h3>
                 <p>
@@ -817,6 +1185,69 @@
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="process-section">
+        <div class="container">
+          <p class="eyebrow">The PoshanSetu Way</p>
+          <h2>How PoshanSetu Works</h2>
+          <div class="process-grid">
+            <article class="process-step">
+              <div class="process-number">01</div>
+              <h3>REGISTER</h3>
+              <p>Schools, SHGs, NGOs and other partners register.</p>
+            </article>
+            <article class="process-step">
+              <div class="process-number">02</div>
+              <h3>VERIFY</h3>
+              <p>Partners go through verified onboarding.</p>
+            </article>
+            <article class="process-step">
+              <div class="process-number">03</div>
+              <h3>CONNECT</h3>
+              <p>Schools and meal providers are connected through the platform.</p>
+            </article>
+            <article class="process-step">
+              <div class="process-number">04</div>
+              <h3>IMPROVE</h3>
+              <p>Better coordination creates safer and more transparent meal programs.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="categories-section">
+        <div class="container">
+          <p class="eyebrow">Join the Network</p>
+          <h2>Partner Categories</h2>
+          <div class="category-grid">
+            <article class="category-card">
+              <div class="category-icon" aria-hidden="true">&#127979;</div>
+              <h3>Schools</h3>
+              <p>Find trusted providers and strengthen your meal program.</p>
+            </article>
+            <article class="category-card">
+              <div class="category-icon" aria-hidden="true">&#127859;</div>
+              <h3>Cloud Kitchens</h3>
+              <p>Bring reliable production capacity to more classrooms.</p>
+            </article>
+            <article class="category-card">
+              <div class="category-icon" aria-hidden="true">&#129309;</div>
+              <h3>Self-Help Groups</h3>
+              <p>Grow women-led local food networks and livelihoods.</p>
+            </article>
+            <article class="category-card">
+              <div class="category-icon" aria-hidden="true">&#127967;</div>
+              <h3>NGOs</h3>
+              <p>Support outreach, monitoring, and community nutrition.</p>
+            </article>
+            <article class="category-card">
+              <div class="category-icon" aria-hidden="true">&#128188;</div>
+              <h3>Local Entrepreneurs</h3>
+              <p>Connect sourcing, logistics, and meal production to schools.</p>
+            </article>
           </div>
         </div>
       </section>
@@ -1124,6 +1555,17 @@
           </div>
         </div>
       </section>
+
+      <section class="final-cta">
+        <div class="container">
+          <h2>Help build safer meal programs.</h2>
+          <p>Join the PoshanSetu network.</p>
+          <div class="hero-actions">
+            <a class="btn btn-green" data-route="register">Register</a>
+            <a class="btn btn-outline" data-route="contact">Contact Us</a>
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- ============ REGISTRATION PAGE ============ -->
@@ -1142,7 +1584,7 @@
       <section>
         <div class="container">
           <div class="reg-grid" id="regCategoryGrid">
-            <div class="reg-card" data-form="schools">
+            <div class="reg-card" data-form="schools" tabindex="0" role="button">
               <div class="ic-mark">&#127979;</div>
               <h3>Schools</h3>
               <p>
@@ -1152,7 +1594,7 @@
               <span class="reg-link">Register as a School &rarr;</span>
             </div>
 
-            <div class="reg-card" data-form="kitchens">
+            <div class="reg-card" data-form="kitchens" tabindex="0" role="button">
               <div class="ic-mark">&#127859;</div>
               <h3>Cloud Kitchens</h3>
               <p>
@@ -1162,7 +1604,7 @@
               <span class="reg-link">Register as a Kitchen &rarr;</span>
             </div>
 
-            <div class="reg-card" data-form="shg">
+            <div class="reg-card" data-form="shg" tabindex="0" role="button">
               <div class="ic-mark">&#129309;</div>
               <h3>SHGs Empowered</h3>
               <p>
@@ -1172,7 +1614,7 @@
               <span class="reg-link">Register as an SHG &rarr;</span>
             </div>
 
-            <div class="reg-card" data-form="ngo">
+            <div class="reg-card" data-form="ngo" tabindex="0" role="button">
               <div class="ic-mark">&#127967;</div>
               <h3>NGOs</h3>
               <p>
@@ -1182,7 +1624,7 @@
               <span class="reg-link">Register as an NGO &rarr;</span>
             </div>
 
-            <div class="reg-card" data-form="entrepreneur">
+            <div class="reg-card" data-form="entrepreneur" tabindex="0" role="button">
               <div class="ic-mark">&#128188;</div>
               <h3>Local Entrepreneurs</h3>
               <p>
@@ -1325,17 +1767,17 @@
               <form id="contactForm">
                 <div class="field-row">
                   <div class="field">
-                    <label>Name</label><input type="text" required />
+                    <label for="contactName">Name</label><input id="contactName" name="name" type="text" required />
                   </div>
                   <div class="field">
-                    <label>Email</label><input type="email" required />
+                    <label for="contactEmail">Email</label><input id="contactEmail" name="email" type="email" required />
                   </div>
                 </div>
                 <div class="field">
-                  <label>Subject</label><input type="text" required />
+                  <label for="contactSubject">Subject</label><input id="contactSubject" name="subject" type="text" required />
                 </div>
                 <div class="field">
-                  <label>Message</label><textarea rows="4" required></textarea>
+                  <label for="contactMessage">Message</label><textarea id="contactMessage" name="message" rows="4" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-green" style="width: 100%">
                   Send Message
@@ -1343,10 +1785,10 @@
               </form>
               <div class="success-msg" id="contactSuccess">
                 <div class="ic-mark">&#10003;</div>
-                <h2>Message Sent</h2>
+                <h2>Continue in Google Forms</h2>
                 <p style="color: #4b5a4d; margin-top: 10px">
-                  Thanks for reaching out — we'll respond within 1–2 business
-                  days.
+                  Please review and submit your pre-filled inquiry form in the
+                  new tab.
                 </p>
               </div>
             </div>
@@ -1360,7 +1802,7 @@
         <div class="foot-grid">
           <div>
             <img
-              src="/assets/PoshanSetu logo.png" 
+              src="assets/PoshanSetu%20logo.png"
               alt="PoshanSetu logo"
               class="foot-logo-img"
             />
@@ -1410,6 +1852,61 @@
         ngo: "https://forms.gle/UFgpvqRmUpyNFcwa6",
         entrepreneur: "https://forms.gle/gY8rhhWG1nGETL189",
       };
+      const GENERAL_INQUIRY_FORM_URL =
+        "https://docs.google.com/forms/d/e/1FAIpQLScrwv7bNZx1YKxrXHtEjCAwPKDnFCBRbjGUKoTGOkXq9TdPgg/viewform";
+      const GENERAL_INQUIRY_FIELDS = {
+        name: "entry.1035768419",
+        email: "entry.765703957",
+        phone: "entry.2067487447",
+        inquiryType: "entry.651107918",
+        subject: "entry.385470222",
+        message: "entry.45632482",
+        consent: "entry.440031117",
+      };
+      const GENERAL_INQUIRY_DEFAULTS = {
+        phone: "",
+        inquiryType: "General Question | सामान्य प्रश्न",
+        consent:
+          "I agree to be contacted by PoshanSetu regarding my inquiry. | मैं अपनी पूछताछ के संबंध में PoshanSetu द्वारा मुझसे संपर्क किए जाने की सहमति देता/देती हूं।",
+      };
+
+      function buildGeneralInquiryFormUrl() {
+        const form = document.getElementById("contactForm");
+        const url = new URL(GENERAL_INQUIRY_FORM_URL);
+        const formData = new FormData(form);
+
+        url.searchParams.set("usp", "pp_url");
+        url.searchParams.set(
+          GENERAL_INQUIRY_FIELDS.name,
+          formData.get("name") || "",
+        );
+        url.searchParams.set(
+          GENERAL_INQUIRY_FIELDS.email,
+          formData.get("email") || "",
+        );
+        url.searchParams.set(
+          GENERAL_INQUIRY_FIELDS.phone,
+          GENERAL_INQUIRY_DEFAULTS.phone,
+        );
+        url.searchParams.set(
+          GENERAL_INQUIRY_FIELDS.inquiryType,
+          GENERAL_INQUIRY_DEFAULTS.inquiryType,
+        );
+        url.searchParams.set(
+          GENERAL_INQUIRY_FIELDS.subject,
+          formData.get("subject") || "",
+        );
+        url.searchParams.set(
+          GENERAL_INQUIRY_FIELDS.message,
+          formData.get("message") || "",
+        );
+        url.searchParams.set(
+          GENERAL_INQUIRY_FIELDS.consent,
+          GENERAL_INQUIRY_DEFAULTS.consent,
+        );
+
+        return url.toString();
+      }
 
       // ---------- Mobile nav toggle ----------
       const navToggle = document.getElementById("navToggle");
@@ -1420,17 +1917,15 @@
       });
 
       // ---------- Routing ----------
-      function showPage(route) {
+      function showPage(route, activeKey = route) {
         document
           .querySelectorAll(".page")
           .forEach((p) => p.classList.remove("active"));
         const target = document.getElementById("page-" + route);
         if (target) target.classList.add("active");
         document.querySelectorAll(".navlinks a[data-route]").forEach((a) => {
-          a.classList.toggle(
-            "active",
-            a.dataset.route === route && !a.classList.contains("btn"),
-          );
+          const navKey = a.dataset.anchor || a.dataset.route;
+          a.classList.toggle("active", navKey === activeKey && !a.classList.contains("btn"));
         });
         window.scrollTo({ top: 0, behavior: "instant" });
         navLinks.classList.remove("open");
@@ -1439,7 +1934,7 @@
       document.querySelectorAll("[data-route]").forEach((el) => {
         el.addEventListener("click", (e) => {
           const route = el.dataset.route;
-          showPage(route);
+          showPage(route, el.dataset.anchor || route);
           if (el.dataset.anchor) {
             setTimeout(() => {
               const anchor = document.getElementById(el.dataset.anchor);
@@ -1477,6 +1972,12 @@
 
       document.querySelectorAll(".reg-card").forEach((card) => {
         card.addEventListener("click", () => openForm(card.dataset.form));
+        card.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            openForm(card.dataset.form);
+          }
+        });
       });
 
       document
@@ -1496,8 +1997,15 @@
       // ---------- Contact form ----------
       document.getElementById("contactForm").addEventListener("submit", (e) => {
         e.preventDefault();
-        e.target.style.display = "none";
-        document.getElementById("contactSuccess").style.display = "block";
+        const formWindow = window.open(
+          buildGeneralInquiryFormUrl(),
+          "_blank",
+          "noopener,noreferrer",
+        );
+        if (formWindow) {
+          e.target.style.display = "none";
+          document.getElementById("contactSuccess").style.display = "block";
+        }
       });
 
       // ---------- Init ----------
