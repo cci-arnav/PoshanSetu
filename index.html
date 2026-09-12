@@ -1063,6 +1063,467 @@
           justify-content: center;
         }
       }
+
+      /* ---------- POLISH & POSHANSETU BRIDGE ---------- */
+      body {
+        overflow-x: hidden;
+      }
+      h2 {
+        font-size: clamp(1.75rem, 3vw, 2.25rem);
+      }
+      .categories-section,
+      .faq {
+        background: linear-gradient(180deg, #fff 0%, var(--green-pale) 100%);
+      }
+      .program {
+        position: relative;
+      }
+      .program::before,
+      .partners::before {
+        content: "";
+        display: block;
+        width: min(1104px, calc(100% - 56px));
+        height: 1px;
+        margin: calc(var(--space-section) * -1) auto var(--space-section);
+        background: linear-gradient(90deg, transparent, var(--line), transparent);
+      }
+      .process-grid {
+        position: relative;
+      }
+      .process-grid::before {
+        content: "";
+        position: absolute;
+        left: 8%;
+        right: 8%;
+        top: -16px;
+        height: 34px;
+        border: 2px solid rgba(62, 142, 79, 0.23);
+        border-bottom: 0;
+        border-radius: 50% 50% 0 0;
+        pointer-events: none;
+      }
+      .process-step {
+        border-radius: 4px 4px 14px 14px;
+        transition: transform 0.18s, box-shadow 0.18s;
+      }
+      .process-step:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow);
+      }
+      .category-card {
+        position: relative;
+        overflow: hidden;
+      }
+      .category-card::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--green), var(--gold));
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.2s ease;
+      }
+      .category-card:hover::after {
+        transform: scaleX(1);
+      }
+      .faq details.card {
+        padding: 22px 24px;
+        box-shadow: none;
+      }
+      .faq details.card[open] {
+        border-color: rgba(62, 142, 79, 0.34);
+        box-shadow: 0 12px 28px rgba(62, 142, 79, 0.08);
+      }
+      .faq summary {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+      .faq summary::-webkit-details-marker {
+        display: none;
+      }
+      .faq summary::after {
+        content: "+";
+        color: var(--gold);
+        font: 700 1.25rem/1 "Inter", sans-serif;
+      }
+      .faq details[open] summary::after {
+        content: "\2212";
+      }
+      a,
+      button,
+      [role="button"] {
+        -webkit-tap-highlight-color: transparent;
+      }
+      @media (max-width: 900px) {
+        .process-grid::before {
+          display: none;
+        }
+        .program::before,
+        .partners::before {
+          width: calc(100% - 56px);
+        }
+      }
+      @media (max-width: 600px) {
+        :root {
+          --space-section: 56px;
+        }
+        .container {
+          padding-inline: 22px;
+        }
+        nav.container {
+          padding: 10px 22px;
+        }
+        .brand {
+          gap: 9px;
+        }
+        .brand-mark-img {
+          width: 43px;
+        }
+        .brand-text strong {
+          font-size: 1.02rem;
+        }
+        .brand-text span {
+          max-width: 170px;
+          font-size: 0.58rem;
+          line-height: 1.35;
+        }
+        .hero {
+          padding: 50px 0 48px;
+        }
+        .hero-grid {
+          gap: 38px;
+        }
+        .hero h1 {
+          font-size: clamp(2.08rem, 10vw, 2.45rem);
+          margin-top: 12px;
+        }
+        .hero p.lead {
+          font-size: 0.98rem;
+          margin-bottom: 24px;
+        }
+        .hero-actions .btn {
+          min-height: 46px;
+          padding-inline: 20px;
+        }
+        .hero-stats {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 8px;
+          margin-top: 26px;
+        }
+        .hero-stats div {
+          min-height: 84px;
+          padding: 14px 6px;
+        }
+        .hero-stats strong {
+          font-size: 1.5rem;
+        }
+        .hero-stats span {
+          font-size: 0.58rem;
+          line-height: 1.35;
+        }
+        .hero-art {
+          min-height: 0;
+          padding: 12px;
+        }
+        .hero-image {
+          height: 250px;
+        }
+        .hero-badge {
+          left: 22px;
+          bottom: 22px;
+        }
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+        .reg-hero,
+        .contact-hero {
+          padding: 52px 0 40px;
+        }
+        .reg-hero h1,
+        .contact-hero h1 {
+          font-size: 2rem;
+        }
+        .cval {
+          overflow-wrap: anywhere;
+        }
+      }
+      @media (max-width: 390px) {
+        .brand-text span {
+          max-width: 138px;
+        }
+        .hero-actions {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+        .hero-actions .btn {
+          width: 100%;
+          padding-inline: 12px;
+        }
+      }
+
+      /* ---------- POSHAN SETU ASSISTANT ---------- */
+      .chat-launcher {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        z-index: 120;
+        width: 60px;
+        height: 60px;
+        display: grid;
+        place-items: center;
+        border: 0;
+        border-radius: 50%;
+        background: linear-gradient(145deg, var(--green), var(--green-deep));
+        color: var(--white);
+        box-shadow: 0 14px 34px rgba(37, 102, 51, 0.34);
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .chat-launcher:hover {
+        transform: translateY(-3px) scale(1.03);
+        box-shadow: 0 18px 38px rgba(37, 102, 51, 0.4);
+      }
+      .chat-launcher:focus-visible,
+      .chat-close:focus-visible,
+      .chat-chip:focus-visible,
+      .chat-send:focus-visible,
+      .chat-cta:focus-visible,
+      .chat-input:focus-visible {
+        outline: 3px solid var(--gold-light);
+        outline-offset: 3px;
+      }
+      .chat-launcher svg,
+      .chat-send svg {
+        width: 27px;
+        height: 27px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .chat-panel {
+        position: fixed;
+        right: 24px;
+        bottom: 96px;
+        z-index: 119;
+        width: min(390px, calc(100vw - 32px));
+        height: min(610px, calc(100dvh - 126px));
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border: 1px solid rgba(62, 142, 79, 0.2);
+        border-radius: 20px;
+        background: var(--white);
+        box-shadow: 0 24px 70px rgba(28, 36, 48, 0.22);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(16px) scale(0.97);
+        transform-origin: bottom right;
+        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+      }
+      .chat-panel.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+      }
+      .chat-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 18px;
+        background: linear-gradient(135deg, var(--green-deep), #347d43);
+        color: var(--white);
+      }
+      .chat-avatar {
+        width: 42px;
+        height: 42px;
+        flex: 0 0 42px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: #fffdf8;
+        color: var(--green-deep);
+        font-size: 1.25rem;
+        box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.35);
+      }
+      .chat-title {
+        min-width: 0;
+        flex: 1;
+      }
+      .chat-title strong {
+        display: block;
+        font-family: "Fraunces", serif;
+        font-size: 1.05rem;
+        line-height: 1.2;
+      }
+      .chat-title span {
+        display: block;
+        margin-top: 3px;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 0.7rem;
+        line-height: 1.35;
+      }
+      .chat-close {
+        width: 36px;
+        height: 36px;
+        display: grid;
+        place-items: center;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.12);
+        color: var(--white);
+        font-size: 1.35rem;
+        cursor: pointer;
+      }
+      .chat-messages {
+        flex: 1;
+        overflow-y: auto;
+        padding: 18px;
+        background:
+          radial-gradient(circle at 100% 0, rgba(232, 129, 46, 0.07), transparent 30%),
+          var(--green-pale);
+        scroll-behavior: smooth;
+      }
+      .chat-row {
+        display: flex;
+        margin-bottom: 12px;
+      }
+      .chat-row.user {
+        justify-content: flex-end;
+      }
+      .chat-bubble {
+        max-width: 86%;
+        padding: 11px 13px;
+        border-radius: 15px 15px 15px 4px;
+        background: var(--white);
+        color: #344338;
+        box-shadow: 0 5px 16px rgba(37, 102, 51, 0.08);
+        font-size: 0.86rem;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+      }
+      .chat-row.user .chat-bubble {
+        border-radius: 15px 15px 4px 15px;
+        background: var(--green);
+        color: var(--white);
+        box-shadow: none;
+      }
+      .chat-suggestions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin: 0 0 16px;
+      }
+      .chat-chip,
+      .chat-cta {
+        border: 1px solid rgba(62, 142, 79, 0.28);
+        border-radius: 999px;
+        background: var(--white);
+        color: var(--green-deep);
+        font: 600 0.75rem/1.25 "Inter", sans-serif;
+        padding: 8px 11px;
+        cursor: pointer;
+        transition: background 0.16s, border-color 0.16s, transform 0.16s;
+      }
+      .chat-chip:hover,
+      .chat-cta:hover {
+        border-color: var(--green);
+        background: var(--green-light);
+        transform: translateY(-1px);
+      }
+      .chat-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin: -4px 0 14px;
+      }
+      .chat-cta {
+        border-color: var(--green);
+        background: var(--green);
+        color: var(--white);
+      }
+      .typing-dots {
+        display: inline-flex;
+        gap: 4px;
+        align-items: center;
+        min-height: 18px;
+      }
+      .typing-dots i {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--green);
+        animation: chat-bounce 1s infinite ease-in-out;
+      }
+      .typing-dots i:nth-child(2) { animation-delay: 0.14s; }
+      .typing-dots i:nth-child(3) { animation-delay: 0.28s; }
+      @keyframes chat-bounce {
+        0%, 60%, 100% { transform: translateY(0); opacity: 0.45; }
+        30% { transform: translateY(-4px); opacity: 1; }
+      }
+      .chat-form {
+        display: flex;
+        gap: 8px;
+        padding: 12px;
+        border-top: 1px solid var(--line);
+        background: var(--white);
+      }
+      .chat-input {
+        min-width: 0;
+        flex: 1;
+        border: 1px solid rgba(62, 142, 79, 0.25);
+        border-radius: 999px;
+        padding: 11px 14px;
+        color: var(--ink);
+        font: 0.85rem "Inter", sans-serif;
+      }
+      .chat-input::placeholder {
+        color: #78867b;
+      }
+      .chat-send {
+        width: 43px;
+        height: 43px;
+        flex: 0 0 43px;
+        display: grid;
+        place-items: center;
+        border: 0;
+        border-radius: 50%;
+        background: var(--gold);
+        color: var(--white);
+        cursor: pointer;
+        transition: background 0.16s, transform 0.16s;
+      }
+      .chat-send:hover {
+        background: #d16f1f;
+        transform: translateY(-1px);
+      }
+      @media (max-width: 600px) {
+        .chat-launcher {
+          right: 16px;
+          bottom: 16px;
+          width: 56px;
+          height: 56px;
+        }
+        .chat-panel {
+          right: 10px;
+          bottom: 82px;
+          width: calc(100vw - 20px);
+          height: min(620px, calc(100dvh - 98px));
+          border-radius: 18px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
     </style>
   </head>
   <body>
@@ -1844,6 +2305,56 @@
       </div>
     </footer>
 
+    <button
+      class="chat-launcher"
+      id="chatLauncher"
+      type="button"
+      aria-label="Open Poshan Setu Assistant"
+      aria-expanded="false"
+      aria-controls="chatPanel"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M21 12a8 8 0 0 1-8 8H7l-4 2 1.35-4.05A8.5 8.5 0 1 1 21 12Z"></path>
+        <path d="M8 12h.01M12 12h.01M16 12h.01"></path>
+      </svg>
+    </button>
+
+    <aside
+      class="chat-panel"
+      id="chatPanel"
+      role="dialog"
+      aria-modal="false"
+      aria-labelledby="chatAssistantName"
+      aria-hidden="true"
+    >
+      <div class="chat-header">
+        <div class="chat-avatar" aria-hidden="true">&#127793;</div>
+        <div class="chat-title">
+          <strong id="chatAssistantName">Poshan Setu Assistant</strong>
+          <span>Guidance on the platform, partners, registration and support</span>
+        </div>
+        <button class="chat-close" id="chatClose" type="button" aria-label="Minimize assistant">&times;</button>
+      </div>
+      <div class="chat-messages" id="chatMessages" aria-live="polite"></div>
+      <form class="chat-form" id="chatForm">
+        <label for="chatInput" class="sr-only" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Ask Poshan Setu Assistant</label>
+        <input
+          class="chat-input"
+          id="chatInput"
+          type="text"
+          autocomplete="off"
+          maxlength="240"
+          placeholder="Ask about Poshan Setu..."
+        />
+        <button class="chat-send" type="submit" aria-label="Send message">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m22 2-7 20-4-9-9-4Z"></path>
+            <path d="M22 2 11 13"></path>
+          </svg>
+        </button>
+      </form>
+    </aside>
+
     <script>
       const POSHANSETU_FORMS = {
         school: "https://forms.gle/k8vFjGEWio6mwSZF9",
@@ -2006,6 +2517,269 @@
           e.target.style.display = "none";
           document.getElementById("contactSuccess").style.display = "block";
         }
+      });
+
+      // ---------- Poshan Setu Assistant (predefined, on-device responses) ----------
+      const CHAT_QUICK_QUESTIONS = [
+        "What is Poshan Setu?",
+        "How does the platform work?",
+        "Who can join the network?",
+        "How are kitchens verified?",
+        "How do I register?",
+        "Contact Poshan Setu",
+      ];
+
+      const CHAT_INTENTS = [
+        {
+          id: "medical",
+          patterns: [/medical advice|diagnos|treatment|cure|disease|personal(ized)? diet|diet plan|health condition|doctor|dietitian/],
+          answer: "I can share general information about Poshan Setu, but I cannot diagnose conditions, recommend treatment, or create a personal diet. Please speak with an appropriately qualified health or nutrition professional for individual advice.",
+          suggestions: ["What is Poshan Setu?", "How is meal quality monitored?", "Contact Poshan Setu"],
+        },
+        {
+          id: "kitchen_verification",
+          patterns: [/kitchen.*verif|verif.*kitchen|fssai|hygiene|compliance check|certification process/],
+          answer: "Before accepting school orders, kitchens complete Poshan Setu's onboarding and certification process, including FSSAI licence verification, hygiene and SOP training, and compliance checks.",
+          suggestions: ["How is meal quality monitored?", "What platform features are available?", "How do I register?"],
+          cta: { label: "Explore Partners", route: "home", anchor: "partners" },
+        },
+        {
+          id: "quality",
+          patterns: [/meal quality|quality monitor|student feedback|feedback.*meal|safe meal|track.*quality|monitor.*meal/],
+          answer: "School Management Committees log meal quality and student feedback after each meal. Compliance is tracked on live dashboards, and field teams review flagged issues through a rapid escalation pathway.",
+          suggestions: ["How are kitchens verified?", "How does the platform work?", "Who can join the network?"],
+          cta: { label: "See the Platform", route: "home", anchor: "program" },
+        },
+        {
+          id: "csr",
+          patterns: [/\bcsr\b|corporate partner|company.*sponsor|sponsor.*school|organisation.*involved|organization.*involved/],
+          answer: "Poshan Setu works with corporate partners to sponsor specific schools or districts, with transparent reporting on meals served and outcomes. Contact the team to discuss scope and documentation.",
+          suggestions: ["Contact Poshan Setu", "Who can join the network?", "What are the main benefits?"],
+          cta: { label: "Contact Us", route: "contact" },
+        },
+        {
+          id: "schools",
+          patterns: [/school.*(join|register|benefit|use|for)|for schools|school meal provider|school registration/],
+          answer: "Schools can register to discover verified meal providers filtered by zone, capacity, budget, ratings and compliance, then manage their meal programme through the platform.",
+          suggestions: ["How are kitchens verified?", "How do I register?", "What platform features are available?"],
+          cta: { label: "Register a School", route: "register", category: "schools" },
+        },
+        {
+          id: "kitchens",
+          patterns: [/cloud kitchen.*(join|register|benefit|use)|kitchen registration|register.*kitchen|for kitchens/],
+          answer: "Cloud kitchens can register, showcase their capacity, complete verification, and connect with schools that need reliable meal service.",
+          suggestions: ["How are kitchens verified?", "How do I register?", "Contact Poshan Setu"],
+          cta: { label: "Register a Kitchen", route: "register", category: "kitchens" },
+        },
+        {
+          id: "shg",
+          patterns: [/\bshg\b|self[- ]help group|women-led|women led/],
+          answer: "Self-help groups can join the supply network to access training, orders and wider distribution. Poshan Setu describes SHGs as women-led groups producing and delivering meals within their communities.",
+          suggestions: ["How do I register?", "Who can join the network?", "How does the platform work?"],
+          cta: { label: "Register an SHG", route: "register", category: "shg" },
+        },
+        {
+          id: "ngo",
+          patterns: [/\bngo\b|nonprofit|non-profit|outreach.*monitor|community nutrition program/],
+          answer: "NGOs can partner with Poshan Setu on outreach, monitoring and community nutrition programme support.",
+          suggestions: ["How do I register?", "Who can join the network?", "Contact Poshan Setu"],
+          cta: { label: "Register an NGO", route: "register", category: "ngo" },
+        },
+        {
+          id: "entrepreneurs",
+          patterns: [/local entrepreneur|small business.*supply|sourcing.*logistics|logistics.*meal/],
+          answer: "Local entrepreneurs can bring sourcing, logistics or meal-production capacity into the Poshan Setu supply chain.",
+          suggestions: ["How do I register?", "Who can join the network?", "What platform features are available?"],
+          cta: { label: "Register as an Entrepreneur", route: "register", category: "entrepreneur" },
+        },
+        {
+          id: "contact",
+          patterns: [/contact|talk to.*team|send.*enquiry|send.*inquiry|get.*help|support|more information|email|phone number|office hours|reach (you|us)/],
+          answer: "You can reach Poshan Setu at hello@poshansetu.org or 011 44101999, Monday to Saturday from 9:00 AM to 6:00 PM. The office is in New Delhi, and the Contact page also has a general inquiry form.",
+          suggestions: ["How do I register?", "How can a company get involved?", "What is Poshan Setu?"],
+          cta: { label: "Contact Us", route: "contact" },
+        },
+        {
+          id: "registration",
+          patterns: [/how.*(join|start|register|sign up|participate)|where.*(register|sign up)|\bregister\b|\bsign up\b|\bparticipate\b|join the network|get started/],
+          answer: "Choose Register, then select the category that describes you: School, Cloud Kitchen, SHG, NGO or Local Entrepreneur. Poshan Setu will open the relevant registration form for that category.",
+          suggestions: ["Who can join the network?", "How are kitchens verified?", "Contact Poshan Setu"],
+          cta: { label: "Choose Registration", route: "register" },
+        },
+        {
+          id: "users",
+          patterns: [/who.*(for|benefit|join|participate|use)|target audience|partner categories|is.*for families|is.*for women|is.*for children|communities use/],
+          answer: "Poshan Setu is built around schools, cloud kitchens, self-help groups, NGOs and local entrepreneurs. It also works with corporate partners, while School Management Committees support community oversight.",
+          suggestions: ["How do I register?", "What platform features are available?", "How can a company get involved?"],
+          cta: { label: "View Partner Categories", route: "home", anchor: "partners" },
+        },
+        {
+          id: "features",
+          patterns: [/feature|service|what.*available|platform offer|support available|resources available|explore.*service|tools/],
+          answer: "The platform covers discovery and matching, quality and compliance, operations and insights, and community governance. The site specifically describes provider search, FSSAI verification, compliance dashboards, hygiene training, meal tracking, forecasting and community feedback.",
+          suggestions: ["How does the platform work?", "How is meal quality monitored?", "Who can join the network?"],
+          cta: { label: "Explore the Platform", route: "home", anchor: "program" },
+        },
+        {
+          id: "programs",
+          patterns: [/what.*program|programs.*offer|initiative|campaign|activities/],
+          answer: "The site presents Poshan Setu as a platform supporting safer and more transparent school meal programmes; it does not currently list separate named public programmes or campaigns. You can explore the platform, register as a partner, or contact the team for details.",
+          suggestions: ["What platform features are available?", "How do I register?", "Contact Poshan Setu"],
+          cta: { label: "Explore the Platform", route: "home", anchor: "program" },
+        },
+        {
+          id: "how_it_works",
+          patterns: [/how.*(poshan ?setu|platform).*(work|operate)|how does it work|process|register.*verify.*connect/],
+          answer: "Poshan Setu follows four steps: partners register, complete verified onboarding, connect with schools or meal providers, and improve programmes through better coordination and feedback.",
+          suggestions: ["What platform features are available?", "Who can join the network?", "How do I register?"],
+          cta: { label: "See How It Works", route: "home", anchor: "program" },
+        },
+        {
+          id: "benefits",
+          patterns: [/benefit|why.*use|why poshan|how.*help|value|advantage/],
+          answer: "Poshan Setu aims to make school meal programmes safer, more transparent and easier to run by connecting stakeholders, verifying partners, supporting operations and enabling community feedback.",
+          suggestions: ["How does the platform work?", "What platform features are available?", "Who can join the network?"],
+        },
+        {
+          id: "nutrition",
+          patterns: [/nutrition resource|nutrition education|balanced nutrition|balanced diet|protein|fruit.*vegetable|micronutrient|everyday nutrition|healthy food/],
+          answer: "Poshan Setu's website focuses on the school-meal ecosystem: safer delivery, verified partners, programme operations and community oversight. It does not currently present a separate nutrition-learning library. For personal nutrition guidance, please consult an appropriately qualified professional.",
+          suggestions: ["What is Poshan Setu?", "How is meal quality monitored?", "What platform features are available?"],
+          cta: { label: "See the Platform", route: "home", anchor: "program" },
+        },
+        {
+          id: "government",
+          patterns: [/government scheme|government program|mid-day meal scheme|pm poshan|who runs/],
+          answer: "Poshan Setu is an independent platform that partners with schools, kitchens, SHGs and NGOs. It does not run a government meal scheme itself.",
+          suggestions: ["What is Poshan Setu?", "Who can join the network?", "Contact Poshan Setu"],
+        },
+        {
+          id: "about",
+          patterns: [/what is (this|poshan ?setu)|tell me about|what does (this platform|this|poshan ?setu|the platform) do|purpose|about poshan|explain poshan/],
+          answer: "Poshan Setu is an independent platform connecting schools, cloud kitchens, self-help groups, NGOs and local entrepreneurs to support safer, more transparent and easier-to-run school meal programmes.",
+          suggestions: ["How does the platform work?", "What platform features are available?", "Who can join the network?", "How do I register?"],
+          cta: { label: "Learn More", route: "home", anchor: "about" },
+        },
+      ];
+
+      const chatLauncher = document.getElementById("chatLauncher");
+      const chatPanel = document.getElementById("chatPanel");
+      const chatClose = document.getElementById("chatClose");
+      const chatMessages = document.getElementById("chatMessages");
+      const chatForm = document.getElementById("chatForm");
+      const chatInput = document.getElementById("chatInput");
+      let chatStarted = false;
+      let chatReplyTimer;
+
+      function addChatBubble(text, role = "assistant") {
+        const row = document.createElement("div");
+        row.className = `chat-row ${role}`;
+        const bubble = document.createElement("div");
+        bubble.className = "chat-bubble";
+        bubble.textContent = text;
+        row.appendChild(bubble);
+        chatMessages.appendChild(row);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        return row;
+      }
+
+      function showChatSuggestions(labels = CHAT_QUICK_QUESTIONS) {
+        const wrap = document.createElement("div");
+        wrap.className = "chat-suggestions";
+        labels.forEach((label) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "chat-chip";
+          button.textContent = label;
+          button.addEventListener("click", () => handleChatQuestion(label));
+          wrap.appendChild(button);
+        });
+        chatMessages.appendChild(wrap);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      function showChatCta(cta) {
+        if (!cta) return;
+        const wrap = document.createElement("div");
+        wrap.className = "chat-actions";
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "chat-cta";
+        button.textContent = `${cta.label} \u2192`;
+        button.addEventListener("click", () => {
+          showPage(cta.route, cta.anchor || cta.route);
+          if (cta.route === "register") {
+            resetRegistration();
+            if (cta.category) openForm(cta.category);
+          }
+          if (cta.anchor) {
+            setTimeout(() => document.getElementById(cta.anchor)?.scrollIntoView({ behavior: "smooth" }), 60);
+          }
+          if (window.innerWidth <= 600) setChatOpen(false);
+        });
+        wrap.appendChild(button);
+        chatMessages.appendChild(wrap);
+      }
+
+      function findChatIntent(question) {
+        const normalized = question.toLowerCase().replace(/[?'!.]/g, " ").replace(/\s+/g, " ").trim();
+        return CHAT_INTENTS.find((intent) => intent.patterns.some((pattern) => pattern.test(normalized)));
+      }
+
+      function showTyping() {
+        const row = document.createElement("div");
+        row.className = "chat-row assistant";
+        row.setAttribute("aria-label", "Assistant is typing");
+        row.innerHTML = '<div class="chat-bubble"><span class="typing-dots"><i></i><i></i><i></i></span></div>';
+        chatMessages.appendChild(row);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        return row;
+      }
+
+      function handleChatQuestion(question) {
+        const cleanQuestion = question.trim();
+        if (!cleanQuestion) return;
+        clearTimeout(chatReplyTimer);
+        chatMessages.querySelectorAll(".chat-suggestions, .typing-dots").forEach((el) => el.closest(".chat-row")?.remove() || el.remove());
+        addChatBubble(cleanQuestion, "user");
+        chatInput.value = "";
+        const typingRow = showTyping();
+        const intent = findChatIntent(cleanQuestion);
+        chatReplyTimer = setTimeout(() => {
+          typingRow.remove();
+          if (intent) {
+            addChatBubble(intent.answer);
+            showChatCta(intent.cta);
+            showChatSuggestions(intent.suggestions);
+          } else {
+            addChatBubble("I'm not sure about that yet, but I can help you learn about Poshan Setu, its platform features, partner network, registration or contact information.");
+            showChatSuggestions();
+          }
+        }, 520);
+      }
+
+      function setChatOpen(open) {
+        chatPanel.classList.toggle("open", open);
+        chatPanel.setAttribute("aria-hidden", String(!open));
+        chatLauncher.setAttribute("aria-expanded", String(open));
+        chatLauncher.setAttribute("aria-label", open ? "Close Poshan Setu Assistant" : "Open Poshan Setu Assistant");
+        if (open && !chatStarted) {
+          chatStarted = true;
+          addChatBubble("Namaste! 👋 Welcome to Poshan Setu. How can I help you today?");
+          showChatSuggestions();
+        }
+        if (open) setTimeout(() => chatInput.focus(), 180);
+        else chatLauncher.focus();
+      }
+
+      chatLauncher.addEventListener("click", () => setChatOpen(!chatPanel.classList.contains("open")));
+      chatClose.addEventListener("click", () => setChatOpen(false));
+      chatForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        handleChatQuestion(chatInput.value);
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && chatPanel.classList.contains("open")) setChatOpen(false);
       });
 
       // ---------- Init ----------
