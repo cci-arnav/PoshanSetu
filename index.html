@@ -616,6 +616,31 @@
         font-size: 0.84rem;
         line-height: 1.5;
       }
+      .app-download {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        margin-top: 32px;
+        padding: 28px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--green-pale);
+      }
+      .app-download h3 { font-size: 1.3rem; margin-bottom: 8px; }
+      .app-download p { color: #4b5a4d; max-width: 560px; }
+      .app-download-action { flex-shrink: 0; text-align: center; }
+      .app-download-action small {
+        display: block;
+        margin-top: 8px;
+        color: #5a6b5c;
+        font-size: 0.8rem;
+      }
+      @media (max-width: 720px) {
+        .app-download { flex-direction: column; align-items: flex-start; padding: 24px; }
+        .app-download-action { width: 100%; }
+        .app-download-action .btn { width: 100%; }
+      }
       .final-cta {
         background: var(--green-deep);
         color: var(--white);
@@ -1758,6 +1783,17 @@
               </p>
             </div>
           </div>
+          <aside class="app-download" aria-labelledby="app-download-title">
+            <div>
+              <p class="eyebrow">Also on Android</p>
+              <h3 id="app-download-title">PoshanSetu, wherever you are</h3>
+              <p>Prefer using your phone? Keep PoshanSetu close with our Android app.</p>
+            </div>
+            <div class="app-download-action">
+              <a class="btn btn-outline" href="assets/downloads/PoshanSetu.apk" download="PoshanSetu.apk">Download Android app</a>
+              <small>Android &middot; APK &middot; 31.7 MB</small>
+            </div>
+          </aside>
         </div>
       </section>
 
