@@ -630,6 +630,8 @@
       .app-download h3 { font-size: 1.3rem; margin-bottom: 8px; }
       .app-download p { color: #4b5a4d; max-width: 560px; }
       .app-download-action { flex-shrink: 0; text-align: center; }
+      .app-download-action .btn:disabled { opacity: 0.65; cursor: wait; transform: none; }
+      .app-download-action small[hidden] { display: none; }
       .app-download-action small {
         display: block;
         margin-top: 8px;
@@ -1790,8 +1792,9 @@
               <p>Prefer using your phone? Keep PoshanSetu close with our Android app.</p>
             </div>
             <div class="app-download-action">
-              <a class="btn btn-outline" href="assets/downloads/PoshanSetu.apk" download="PoshanSetu.apk">Download Android app</a>
+              <button class="btn btn-outline" type="button" id="downloadApp">Download Android app</button>
               <small>Android &middot; APK &middot; 31.7 MB</small>
+              <small id="downloadStatus" role="status" aria-live="polite" hidden></small>
             </div>
           </aside>
         </div>
@@ -2828,6 +2831,45 @@
       });
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape" && chatPanel.classList.contains("open")) setChatOpen(false);
+      });
+
+      // Keep each hosted asset below the host's 25 MB file limit.
+      // Join the original bytes into one APK when the visitor requests it.
+      document.getElementById("downloadApp").addEventListener("click", async (event) => {
+        const button = event.currentTarget;
+        const status = document.getElementById("downloadStatus");
+        button.disabled = true;
+        button.setAttribute("aria-busy", "true");
+        button.textContent = "Preparing download…";
+        status.hidden = false;
+        status.textContent = "Your APK is downloading. Please keep this page open.";
+        try {
+          const parts = await Promise.all([1, 2].map(async (part) => {
+            const response = await fetch(`assets/downloads/PoshanSetu.apk.part${part}`);
+            if (!response.ok) throw new Error("Download unavailable");
+            return response.arrayBuffer();
+          }));
+          const apk = new Blob(parts, { type: "application/vnd.android.package-archive" });
+          if (apk.size !== 33267133) throw new Error("Incomplete download");
+          const digest = await crypto.subtle.digest("SHA-256", await apk.arrayBuffer());
+          const hash = Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("");
+          if (hash !== "3ff693e3b70a667360a940d5cae6456e1f424edbb95fc97baa12947d6a41ba9f") throw new Error("Invalid download");
+          const url = URL.createObjectURL(apk);
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = "PoshanSetu.apk";
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+          setTimeout(() => URL.revokeObjectURL(url), 60000);
+          status.textContent = "Your APK is ready. Check your browser’s downloads.";
+        } catch {
+          status.textContent = "The download couldn’t finish. Please try again.";
+        } finally {
+          button.disabled = false;
+          button.removeAttribute("aria-busy");
+          button.textContent = "Download Android app";
+        }
       });
 
       // ---------- Init ----------
